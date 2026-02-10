@@ -1,0 +1,24 @@
+{
+  "name": "ai-roblox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wardenkensub/ai-roblox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Wardenkensub/ai-roblox/issues"
+  },
+  "homepage": "https://github.com/Wardenkensub/ai-roblox#readme",
+  "dependencies": {
+    "@openrouter/sdk": "^0.8.0"
+  }
+}
