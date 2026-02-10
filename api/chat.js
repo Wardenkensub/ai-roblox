@@ -16,22 +16,23 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "No message" });
     }
 
-    const completion = await openrouter.chat.send({
-      model: "deepseek/deepseek-r1-0528:free",
-      chatGenerationParams: {
-        messages: [
-          {
-            role: "system",
-            content: "You are a safe AI companion inside Roblox."
-          },
-          {
-            role: "user",
-            content: message
-          }
-        ],
-        max_tokens: 200
+const completion = await openrouter.chat.send({
+  chatGenerationParams: {
+    model: "deepseek/deepseek-r1-0528:free",
+    messages: [
+      {
+        role: "system",
+        content: "You are a safe AI companion inside Roblox."
+      },
+      {
+        role: "user",
+        content: message
       }
-    });
+    ],
+    max_tokens: 200
+  }
+});
+
 
     const reply =
       completion?.choices?.[0]?.message?.content ||
