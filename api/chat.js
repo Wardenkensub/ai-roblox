@@ -18,16 +18,19 @@ export default async function handler(req, res) {
 
     const completion = await openrouter.chat.send({
       model: "deepseek/deepseek-r1-0528:free",
-      messages: [
-        {
-          role: "system",
-          content: "You are a safe AI companion inside Roblox.",
-        },
-        {
-          role: "user",
-          content: message,
-        },
-      ],
+      chatGenerationParams: {
+        messages: [
+          {
+            role: "system",
+            content: "You are a safe AI companion inside Roblox."
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ],
+        max_tokens: 200
+      }
     });
 
     const reply =
@@ -40,7 +43,7 @@ export default async function handler(req, res) {
     console.error("FULL ERROR:", err);
     return res.status(500).json({
       error: "AI error",
-      details: err.message,
+      details: err.message
     });
   }
 }
