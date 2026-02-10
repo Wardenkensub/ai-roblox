@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid message" });
     }
 
-    const completion = await openrouter.chat.completions.create({
+    const completion = await openrouter.chat.send({
       model: "deepseek/deepseek-r1-0528:free",
       messages: [
         {
