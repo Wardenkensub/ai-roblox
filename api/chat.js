@@ -17,20 +17,27 @@ export default async function handler(req, res) {
     }
 
 const completion = await openrouter.chat.send({
-  chatGenerationParams: {
-    model: "deepseek/deepseek-r1-0528:free",
-    messages: [
-      {
-        role: "system",
-        content: "You are a safe AI companion inside Roblox."
-      },
-      {
-        role: "user",
-        content: message
-      }
-    ],
-    max_tokens: 200
-  }
+chatGenerationParams: {
+  model: "deepseek/deepseek-r1-0528:free",
+  messages: [
+    {
+      role: "system",
+      content: `
+You are a friendly AI inside a Roblox game.
+Reply in the same language as the user.
+Keep answers very short (1-2 sentences max).
+Be casual and natural, not formal.
+Do not explain too much.
+`
+    },
+    {
+      role: "user",
+      content: message
+    }
+  ],
+  max_tokens: 70
+}
+
 });
 
 
